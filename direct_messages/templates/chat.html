@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chat_title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .chat-box {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .sent-message {
+            background-color: #e2f0cb;
+            color: #555;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .received-message {
+            background-color: #c2e8ce;
+            color: #555;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+
+        .message p {
+            margin: 0;
+        }
+
+        .sender-info {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .chat-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .conversation-info {
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="conversation-info">会話相手: {{ chat_partner }}</div>
+        <h1 class="chat-title">{{ chat_title }}</h1>
+        <div class="chat-box">
+            {% for message in messages %}
+                <div class="message {% if message.sender == request.user %} sent-message {% else %} received-message {% endif %}">
+                    <div class="sender-info">
+                        {% if message.sender == request.user %}
+                            You - {{ message.timestamp }}
+                        {% else %}
+                            {{ message.sender }} - {{ message.timestamp }}
+                        {% endif %}
+                    </div>
+                    <div class="message-content">
+                        <p>{{ message.message }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

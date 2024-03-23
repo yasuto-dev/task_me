@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}仕事リスト画面{% endblock %}
+
+{% block page_title %}
+  <div class="page-title">仕事リスト画面</div>
+{% endblock %}
+
+{% block content %}
+  <div class="job-list">
+    <a href="/job_post_list/job_regist/">仕事を登録する</a></li>
+    
+    <!-- 検索ボックス -->
+    <form method="get">
+      <input type="text" name="keyword" placeholder="キーワードを入力">
+      <button type="submit">検索</button>
+    </form>
+    <p class="section-title">仕事募集一覧</p>
+
+    {% if object_list %}
+    {% for post in object_list %}
+    <!-- サーチ結果がある場合の表示 -->
+        <!-- カードスタイルのカード -->
+            <div class="job-card">
+            <!-- 仕事のタイトルを太字にするクラスを適用 -->
+            <p class="job-title">
+              {{ post.job_title }}</p>
+            <!-- 線を挿入 -->
+            <div class="separator-line"></div>
+            <p>{{ post.user_name }}</p>
+            <!-- 線を挿入 -->
+            <div class="separator-line"></div>
+            <p>{{ post.job_detail }}</p>
+            <!-- 線を挿入 -->
+            <div class="separator-line"></div>
+            <p>{{ post.created_at }}</p>
+            <!-- 線を挿入 -->
+            <div class="separator-line"></div>
+            {% if user.is_authenticated and user == post.user %}
+            <p><a class='btn btn-primary' href="{% url 'joblist:job_update' pk=post.post_id %}">編集する</a></p>
+            {% else %}
+            <p>　　</p>
+            {% endif %}
+          </div>
+    {% endfor %}
+  {% else %}
+    <!-- 検索結果がない場合の表示 -->
+    <p>キーワードに対する検索結果はありません。</p>
+{% endif %}
+</div>
+{% endblock %}

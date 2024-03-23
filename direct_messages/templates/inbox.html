@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox</title>
+</head>
+<body>
+    <h1>Inbox</h1>
+    <div class="chat-partners">
+        {% for partner, timestamp in chat_partners %}
+            <div class="chat-partner">
+                <a href="{% url 'direct_messages:chat' partner.id %}">Chat with {{ partner }}</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

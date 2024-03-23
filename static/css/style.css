@@ -1,0 +1,58 @@
+/* CSSファイル内のスタイル */
+
+/* サイドメニュー用のスタイル */
+.side-menu {
+    width: 200px;
+    color: #000000;
+    padding: 20px;
+}
+
+/* リンクのスタイル */
+.side-menu a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+/* リンクのホバーエフェクト */
+.side-menu a:hover {
+    text-decoration: underline;
+}
+
+/* コンテンツエリアのスタイル */
+.content {
+    width: 80%; /* 80%の幅を設定 */
+    margin: 0 auto; /* 中央配置 */
+    padding: 20px;
+}
+
+  /* タイトルスタイル */
+  .page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* カードスタイルのスタイルを定義 */
+  .job-card {
+    border: 1px solid #ccc;
+    border-radius: 10px; /* 角をラウンドにする */
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 30%; /* カードの横幅を設定 */
+    display: inline-block; /* カードを横並びにする */
+    box-sizing: border-box; /* ボーダーボックスモデルを使用 */
+  }
+  
+  /* 仕事のタイトルを太字にするスタイル */
+  .job-title {
+    font-weight: bold;
+  }
+  
+  /* 線のスタイルを定義 */
+  .separator-line {
+    border-top: 1px solid #ccc;
+    margin: 10px 0; /* 上下に余白を追加 */
+  }
+  
+  

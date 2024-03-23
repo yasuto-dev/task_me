@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サイドメニュー</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- サイドメニュー -->
+
+
+        <!-- コンテンツエリア -->
+        <div class="content">
+            <h1>こんにちは、{{user}}さん</h1>
+            <p>ここにコンテンツが表示されます。</p>
+            編集するボタン
+            {{ form.as_p }}
+
+            from
+        </div>
+    </div>
+</body>
+</html>

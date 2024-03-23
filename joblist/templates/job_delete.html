@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}仕事削除画面{% endblock %}
+
+{% block page_title %}
+  <div class="page-title">仕事削除画面</div>
+{% endblock %}
+
+{% block content %}
+  <div class="job-update">
+    <p class="section-title">仕事削除</p>
+
+    <!-- 仕事登録フォーム -->
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">削除する</button>
+    </form>
+  </div>
+{% endblock %}

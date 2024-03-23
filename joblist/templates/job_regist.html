@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}仕事登録画面{% endblock %}
+
+{% block page_title %}
+  <div class="page-title">仕事登録画面</div>
+{% endblock %}
+
+{% block content %}
+  <div class="job-regist">
+    <p class="section-title">仕事登録</p>
+
+    <!-- 仕事登録フォーム -->
+    <form method="post" action="{% url 'joblist:job_regist' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">登録</button>
+    </form>
+  </div>
+{% endblock %}
